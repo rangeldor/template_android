@@ -37,11 +37,11 @@ public class ProductTable extends DAO {
     public boolean create(Product product) {
         SQLiteDatabase db = this.getWritableDatabase ( );
 
-        ContentValues dados = new ContentValues ( );
-        dados.put ( COLUMN_NAME_NAME , product.getName ( ) );
-        dados.put ( COLUMN_NAME_PRICE , product.getPrice ( ) );
+        ContentValues data = new ContentValues ( );
+        data.put ( COLUMN_NAME_NAME , product.getName ( ) );
+        data.put ( COLUMN_NAME_PRICE , product.getPrice ( ) );
 
-        long result = db.insert ( TABLE_NAME , null , dados );
+        long result = db.insert ( TABLE_NAME , null , data );
         if ( result > 0 ) {
             Log.d ( TAG , "Sucesso ao inserir! " );
             return true;
@@ -79,7 +79,6 @@ public class ProductTable extends DAO {
         return productList;
     }
 
-
     public List<Product> readAll() {
 
         String sql = "SELECT * FROM " + TABLE_NAME;
@@ -111,11 +110,11 @@ public class ProductTable extends DAO {
     public boolean update(Product product) {
         SQLiteDatabase db = this.getWritableDatabase ( );
 
-        ContentValues dados = new ContentValues ( );
-        dados.put ( COLUMN_NAME_NAME , product.getName ( ) );
-        dados.put ( COLUMN_NAME_PRICE , product.getPrice ( ) );
+        ContentValues data = new ContentValues ( );
+        data.put ( COLUMN_NAME_NAME , product.getName ( ) );
+        data.put ( COLUMN_NAME_PRICE , product.getPrice ( ) );
 
-        long result = db.update ( TABLE_NAME , dados , "id=?" , new String[]{String.valueOf ( product.getId ( ) )} );
+        long result = db.update ( TABLE_NAME , data , "id=?" , new String[]{String.valueOf ( product.getId ( ) )} );
         if ( result > 0 ) {
             Log.d ( TAG , "Sucesso ao atualizar! " );
             return true;
