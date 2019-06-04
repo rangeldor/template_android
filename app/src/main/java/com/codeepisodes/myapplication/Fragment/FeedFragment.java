@@ -26,7 +26,7 @@ public class FeedFragment extends Fragment implements Callback {
 
     private RecyclerView recyclerView;
     private FeedAdapter adapter;
-    private List<Article> articles = new ArrayList<> ();
+    private List<Article> articles;
 
     public FeedFragment() {
         // Required empty public constructor
@@ -39,6 +39,8 @@ public class FeedFragment extends Fragment implements Callback {
 
         recyclerView = view.findViewById(R.id.feed_recyclerview);
         recyclerView.setLayoutManager ( new LinearLayoutManager ( getActivity () ) );
+
+        articles = new ArrayList<> ();
 
         adapter = new FeedAdapter ( articles );
         recyclerView.setAdapter(adapter);

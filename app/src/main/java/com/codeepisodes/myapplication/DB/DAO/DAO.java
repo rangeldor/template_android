@@ -8,7 +8,7 @@ import com.codeepisodes.myapplication.DB.Models.ProductTable;
 
 public class DAO extends SQLiteOpenHelper {
 
-    public static int DATABASE_VERSION = 1;
+    public static int DATABASE_VERSION = 2;
     public static String DATABASE_NAME = "vendas";
 
     public DAO(Context context) {

@@ -2,10 +2,11 @@ package com.codeepisodes.myapplication.DTO;
 
 import java.io.Serializable;
 
-public class Product  {
+public class Product implements Serializable {
 
     private Integer id;
     private String name;
+    private String description;
     private int price;
 
     public Integer getId() {
@@ -24,6 +25,14 @@ public class Product  {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public int getPrice() {
         return price;
     }
@@ -37,6 +46,7 @@ public class Product  {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 ", price=" + price +
                 '}';
     }

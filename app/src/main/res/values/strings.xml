@@ -18,5 +18,13 @@
     <string name="menu_send">Send</string>
     <!-- Item_Adapter_Feed -->
     <string name="btn_acessar">ACESSAR</string>
+    <string name="nav_menu_product">Produto</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_titulo_produto">Título do produto</string>
+    <string name="txt_subtitulo_produto">Subtítulo do produto</string>
+    <string name="txt_price">R$ 1,50</string>
+    <string name="format_price">R$</string>
 
 </resources>

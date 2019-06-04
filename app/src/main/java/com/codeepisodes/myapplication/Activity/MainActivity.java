@@ -21,6 +21,7 @@ import android.view.Menu;
 import com.codeepisodes.myapplication.DB.Models.ProductTable;
 import com.codeepisodes.myapplication.DTO.Product;
 import com.codeepisodes.myapplication.Fragment.FeedFragment;
+import com.codeepisodes.myapplication.Fragment.ProductFragment;
 import com.codeepisodes.myapplication.R;
 
 import java.util.List;
@@ -41,11 +42,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_main );
 
+        // Instancia os componentes do android
         castComponents ( );
+        // Cria a Toolbar(Barra superior)
         createToolbar();
+        // Cria o NavigateDraweer(Menu lateral)
         createNavigateDrawer ( );
 
         FeedFragment feedFragment = new FeedFragment ( );
+        // Cria a transação do fragmento
         createFragmentTransaction ( feedFragment );
 
 
@@ -123,11 +128,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId ( );
 
         if ( id == R.id.nav_feed ) {
-
-        } else if ( id == R.id.nav_gallery ) {
-
-        } else if ( id == R.id.nav_slideshow ) {
-
+            FeedFragment feedFragment = new FeedFragment ( );
+            createFragmentTransaction ( feedFragment );
+        } else if ( id == R.id.nav_product ) {
+            ProductFragment productFragment = new ProductFragment ();
+            createFragmentTransaction ( productFragment );
         } else if ( id == R.id.nav_tools ) {
 
         } else if ( id == R.id.nav_share ) {

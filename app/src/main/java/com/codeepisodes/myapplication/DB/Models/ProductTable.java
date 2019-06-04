@@ -23,12 +23,14 @@ public class ProductTable extends DAO {
     public static String TABLE_NAME = "product";
     public static String COLUMN_NAME_ID = "id";
     public static String COLUMN_NAME_NAME = "name";
+    public static String COLUMN_NAME_DESCRIPTION = "description";
     public static String COLUMN_NAME_PRICE = "price";
 
     public static String SQL_CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_NAME_NAME + " TEXT NOT NULL, " +
+                    COLUMN_NAME_DESCRIPTION + " TEXT NOT NULL, " +
                     COLUMN_NAME_PRICE + " INTEGER DEFAULT 0 );";
 
     public static final String SQL_DROP_TABLE =
@@ -39,6 +41,7 @@ public class ProductTable extends DAO {
 
         ContentValues data = new ContentValues ( );
         data.put ( COLUMN_NAME_NAME , product.getName ( ) );
+        data.put ( COLUMN_NAME_DESCRIPTION , product.getDescription ( ) );
         data.put ( COLUMN_NAME_PRICE , product.getPrice ( ) );
 
         long result = db.insert ( TABLE_NAME , null , data );
@@ -66,6 +69,7 @@ public class ProductTable extends DAO {
                     if ( c.getString ( c.getColumnIndex ( COLUMN_NAME_ID ) ) != null )
                         product.setId ( Integer.valueOf ( c.getString ( c.getColumnIndex ( COLUMN_NAME_ID ) ) ) );
                     product.setName ( c.getString ( c.getColumnIndex ( COLUMN_NAME_NAME ) ) );
+                    product.setDescription ( c.getString ( c.getColumnIndex ( COLUMN_NAME_DESCRIPTION ) ) );
                     if ( c.getString ( c.getColumnIndex ( COLUMN_NAME_PRICE ) ) != null )
                         product.setPrice ( Integer.valueOf ( c.getString ( c.getColumnIndex ( COLUMN_NAME_PRICE ) ) ) );
 
@@ -94,6 +98,7 @@ public class ProductTable extends DAO {
                     if ( c.getString ( c.getColumnIndex ( COLUMN_NAME_ID ) ) != null )
                         product.setId ( Integer.valueOf ( c.getString ( c.getColumnIndex ( COLUMN_NAME_ID ) ) ) );
                     product.setName ( c.getString ( c.getColumnIndex ( COLUMN_NAME_NAME ) ) );
+                    product.setDescription ( c.getString ( c.getColumnIndex ( COLUMN_NAME_DESCRIPTION ) ) );
                     if ( c.getString ( c.getColumnIndex ( COLUMN_NAME_PRICE ) ) != null )
                         product.setPrice ( Integer.valueOf ( c.getString ( c.getColumnIndex ( COLUMN_NAME_PRICE ) ) ) );
 
@@ -112,6 +117,7 @@ public class ProductTable extends DAO {
 
         ContentValues data = new ContentValues ( );
         data.put ( COLUMN_NAME_NAME , product.getName ( ) );
+        data.put ( COLUMN_NAME_DESCRIPTION , product.getDescription ( ) );
         data.put ( COLUMN_NAME_PRICE , product.getPrice ( ) );
 
         long result = db.update ( TABLE_NAME , data , "id=?" , new String[]{String.valueOf ( product.getId ( ) )} );
