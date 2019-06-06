@@ -1,7 +1,9 @@
 package com.codeepisodes.myapplication.Adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
@@ -10,13 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.codeepisodes.myapplication.Activity.DetailActivity;
+import com.codeepisodes.myapplication.Activity.ProductActivity;
 import com.codeepisodes.myapplication.DTO.Product;
+import com.codeepisodes.myapplication.Fragment.ProductFragment;
 import com.codeepisodes.myapplication.R;
 
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
 
+    private static final String TAG = "ProductAdapter";
     private Context context;
     private List<Product> productList;
     private Product product;
@@ -48,7 +54,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         return productList.size ();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         AppCompatImageView img_product;
         TextView txt_title, txt_subtitle, txt_price;
@@ -60,6 +66,33 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
             this.txt_title = itemView.findViewById ( R.id.txt_title );
             this.txt_subtitle = itemView.findViewById ( R.id.txt_subtitle );
             this.txt_price = itemView.findViewById ( R.id.txt_price );
+
+            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener ( this );
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getLayoutPosition();
+
+            product = productList.get ( position );
+
+            Intent intent = new Intent(context, DetailActivity.class );
+            intent.putExtra ( ProductFragment.SELECTED_PRODUCT, product );
+            context.startActivity(intent);
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            int position = getLayoutPosition();
+
+            product = productList.get ( position );
+
+            Intent intent = new Intent(context, ProductActivity.class );
+            intent.putExtra ( ProductFragment.SELECTED_PRODUCT, product );
+            context.startActivity(intent);
+
+            return true;
         }
     }
 }

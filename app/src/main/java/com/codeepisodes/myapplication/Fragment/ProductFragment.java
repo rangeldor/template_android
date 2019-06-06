@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.codeepisodes.myapplication.Activity.MainActivity;
@@ -27,13 +28,15 @@ import java.util.List;
 
 public class ProductFragment extends Fragment {
 
+    public static final String SELECTED_PRODUCT = "selectedproduct";
     private static final String TAG = "ProductFragment";
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
-    private List<Product> productList;
+    private List<Product> productList = new ArrayList<> (  );
     private ProductTable productTable;
     private FloatingActionButton fab_addProduct;
     private Intent intent;
+
 
     public ProductFragment() {
         // Required empty public constructor
@@ -46,8 +49,6 @@ public class ProductFragment extends Fragment {
         fab_addProduct = view.findViewById(R.id.fab_addProduct);
 
         setRecyclerView(view);
-
-        Log.d ( TAG , "onCreateView: " + productTable.readAll () );
 
         fab_addProduct.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
