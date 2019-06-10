@@ -2,13 +2,17 @@ package com.codeepisodes.myapplication.Fragment;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.support.v7.widget.helper.ItemTouchHelper.Callback;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +25,11 @@ import com.codeepisodes.myapplication.Activity.ProductActivity;
 import com.codeepisodes.myapplication.Adapter.ProductAdapter;
 import com.codeepisodes.myapplication.DB.Models.ProductTable;
 import com.codeepisodes.myapplication.DTO.Product;
+import com.codeepisodes.myapplication.Helper.SwipeToDeleteCallback;
 import com.codeepisodes.myapplication.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProductFragment extends Fragment {
@@ -36,6 +42,7 @@ public class ProductFragment extends Fragment {
     private ProductTable productTable;
     private FloatingActionButton fab_addProduct;
     private Intent intent;
+    CoordinatorLayout coordinatorLayout;
 
 
     public ProductFragment() {
@@ -47,8 +54,12 @@ public class ProductFragment extends Fragment {
 
         View view = inflater.inflate ( R.layout.fragment_product , container , false );
         fab_addProduct = view.findViewById(R.id.fab_addProduct);
+        coordinatorLayout = view.findViewById(R.id.productCoordinatorLayout);
 
         setRecyclerView(view);
+
+        // Adicionar o gesto de deslizar o item da lista para poder deletar
+        enableSwipeToDeleteAndUndo();
 
         fab_addProduct.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
@@ -79,7 +90,35 @@ public class ProductFragment extends Fragment {
 
         adapter = new ProductAdapter ( productTable.readAll (), getActivity () );
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+    }
+
+    private void enableSwipeToDeleteAndUndo() {
+        SwipeToDeleteCallback swipeToDeleteCallback = new SwipeToDeleteCallback(getActivity ()) {
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+
+                final int position = viewHolder.getAdapterPosition();
+                productList = Collections.singletonList ( adapter.getData ( ).get ( position ) );
+
+                adapter.removeItem(position);
+
+                Snackbar snackbar = Snackbar
+                        .make(coordinatorLayout, "Item removido da lista.", Snackbar.LENGTH_LONG);
+               /* snackbar.setAction("REFAZER", view -> {
+
+                    adapter.restoreItem(productList, position);
+                    recyclerView.scrollToPosition(position);
+
+                } );
+
+                snackbar.setActionTextColor( Color.YELLOW);
+                */
+                snackbar.show();
+            }
+        };
+
+        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeToDeleteCallback);
+        itemTouchhelper.attachToRecyclerView(recyclerView);
     }
 
 }
