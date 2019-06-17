@@ -25,16 +25,21 @@ public class ProductTable extends DAO {
     public static String COLUMN_NAME_NAME = "name";
     public static String COLUMN_NAME_DESCRIPTION = "description";
     public static String COLUMN_NAME_PRICE = "price";
+    public static String COLUMN_NAME_IMAGE_PATH = "imagePath";
 
     public static String SQL_CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_NAME_NAME + " TEXT NOT NULL, " +
                     COLUMN_NAME_DESCRIPTION + " TEXT NOT NULL, " +
-                    COLUMN_NAME_PRICE + " INTEGER DEFAULT 0 );";
+                    COLUMN_NAME_PRICE + " INTEGER DEFAULT 0 " +
+                    COLUMN_NAME_IMAGE_PATH + " TEXT);";
 
     public static final String SQL_DROP_TABLE =
             "DROP TABLE IF EXISTS " + TABLE_NAME;
+
+    public static final String SQL_ALTER_TABLE =
+            "ALTER TABLE " + TABLE_NAME + " ADD COLUMN " + COLUMN_NAME_IMAGE_PATH + " TEXT";
 
     public boolean create(Product product) {
         SQLiteDatabase db = this.getWritableDatabase ( );
@@ -43,6 +48,7 @@ public class ProductTable extends DAO {
         data.put ( COLUMN_NAME_NAME , product.getName ( ) );
         data.put ( COLUMN_NAME_DESCRIPTION , product.getDescription ( ) );
         data.put ( COLUMN_NAME_PRICE , product.getPrice ( ) );
+        data.put ( COLUMN_NAME_IMAGE_PATH , product.getImagePath ( ) );
 
         long result = db.insert ( TABLE_NAME , null , data );
         if ( result > 0 ) {
@@ -72,6 +78,7 @@ public class ProductTable extends DAO {
                     product.setDescription ( c.getString ( c.getColumnIndex ( COLUMN_NAME_DESCRIPTION ) ) );
                     if ( c.getString ( c.getColumnIndex ( COLUMN_NAME_PRICE ) ) != null )
                         product.setPrice ( Integer.valueOf ( c.getString ( c.getColumnIndex ( COLUMN_NAME_PRICE ) ) ) );
+                    product.setImagePath ( c.getString ( c.getColumnIndex ( COLUMN_NAME_IMAGE_PATH ) ) );
 
                     productList.add ( product );
                 }
@@ -101,6 +108,7 @@ public class ProductTable extends DAO {
                     product.setDescription ( c.getString ( c.getColumnIndex ( COLUMN_NAME_DESCRIPTION ) ) );
                     if ( c.getString ( c.getColumnIndex ( COLUMN_NAME_PRICE ) ) != null )
                         product.setPrice ( Integer.valueOf ( c.getString ( c.getColumnIndex ( COLUMN_NAME_PRICE ) ) ) );
+                    product.setImagePath ( c.getString ( c.getColumnIndex ( COLUMN_NAME_IMAGE_PATH ) ) );
 
                     productList.add ( product );
                 }
@@ -119,6 +127,7 @@ public class ProductTable extends DAO {
         data.put ( COLUMN_NAME_NAME , product.getName ( ) );
         data.put ( COLUMN_NAME_DESCRIPTION , product.getDescription ( ) );
         data.put ( COLUMN_NAME_PRICE , product.getPrice ( ) );
+        data.put ( COLUMN_NAME_IMAGE_PATH , product.getImagePath ( ) );
 
         long result = db.update ( TABLE_NAME , data , "id=?" , new String[]{String.valueOf ( product.getId ( ) )} );
         if ( result > 0 ) {

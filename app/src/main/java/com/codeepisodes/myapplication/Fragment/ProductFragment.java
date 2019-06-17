@@ -9,8 +9,10 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.support.v7.widget.helper.ItemTouchHelper.Callback;
 import android.util.Log;
@@ -42,7 +44,8 @@ public class ProductFragment extends Fragment {
     private ProductTable productTable;
     private FloatingActionButton fab_addProduct;
     private Intent intent;
-    CoordinatorLayout coordinatorLayout;
+    private CoordinatorLayout coordinatorLayout;
+    private Toolbar toolbar;
 
 
     public ProductFragment() {
@@ -55,6 +58,12 @@ public class ProductFragment extends Fragment {
         View view = inflater.inflate ( R.layout.fragment_product , container , false );
         fab_addProduct = view.findViewById(R.id.fab_addProduct);
         coordinatorLayout = view.findViewById(R.id.productCoordinatorLayout);
+
+//        toolbar = view.findViewById ( R.id.toolbar_product );
+
+        // Adicionar toolbar no fragment caso precise
+//        AppCompatActivity activity = (AppCompatActivity) getActivity();
+//        activity.setSupportActionBar(toolbar);
 
         setRecyclerView(view);
 
@@ -102,8 +111,7 @@ public class ProductFragment extends Fragment {
 
                 adapter.removeItem(position);
 
-                Snackbar snackbar = Snackbar
-                        .make(coordinatorLayout, "Item removido da lista.", Snackbar.LENGTH_LONG);
+                Snackbar snackbar = Snackbar.make(coordinatorLayout, "Item removido da lista.", Snackbar.LENGTH_LONG);
                /* snackbar.setAction("REFAZER", view -> {
 
                     adapter.restoreItem(productList, position);

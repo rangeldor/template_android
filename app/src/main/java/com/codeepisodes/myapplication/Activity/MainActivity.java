@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView ( R.layout.activity_main );
 
         // Instancia os componentes do android
-        castComponents ( );
+        initComponents ( );
         // Cria a Toolbar(Barra superior)
         createToolbar();
         // Cria o NavigateDraweer(Menu lateral)
@@ -52,59 +52,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FeedFragment feedFragment = new FeedFragment ( );
         // Cria a transação do fragmento
         createFragmentTransaction ( feedFragment );
-
-
-//        productTable = new ProductTable ( getApplicationContext () );
-//
-//        // Lista todos os produtos
-//        productList = productTable.readAll ();
-//
-//        Log.d ( TAG , "Lista de Produtos: " + productList.toString () );
-//
-//        // Lista o produto conforme o id
-//        productList = productTable.read (productList.get ( 0 ).getId ());
-//
-//        Log.d ( TAG , "Produto: " + productList.toString () );
-//
-//        // Atualiza o produto com o objeto passado
-//        product = new Product ();
-//        product.setId ( 1 );
-//        product.setName ( "Armario" );
-//        product.setPrice ( 2500 );
-//        if(productTable.update (product)){
-//            Log.d ( TAG , "Produto atualizado com sucesso " );
-//        }else{
-//            Log.d ( TAG , "Erro ao atualizar o produto " + productList.toString () );
-//        }
-//
-//        // Lista todos os produtos
-//        productList = productTable.readAll ();
-//
-//        Log.d ( TAG , "Lista de Produtos 2: " + productList.toString () );
-//
-//        // Deleta o produto conforme o id
-//        if(productTable.delete (2)){
-//            Log.d ( TAG , "Produto deletado com sucesso " );
-//        }else{
-//            Log.d ( TAG , "Erro ao deletar o produto " + productList.toString () );
-//        }
-//
-//        // Lista todos os produtos
-//        productList = productTable.readAll ();
-//
-//        Log.d ( TAG , "Lista de Produtos 3: " + productList.toString () );
-//
-//
-//
-//        fab.setOnClickListener ( new View.OnClickListener ( ) {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent ( MainActivity.this, ProductActivity.class );
-//                startActivity ( intent );
-//            }
-//        } );
-
-
     }
 
     /**********************************************************************************************/
@@ -150,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     /*********************************** PRIVATE METHODS    ***************************************/
     /**********************************************************************************************/
 
-    private void castComponents() {
+    private void initComponents() {
 
     }
 

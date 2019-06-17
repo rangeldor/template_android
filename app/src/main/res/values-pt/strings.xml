@@ -1,0 +1,31 @@
+<resources>
+    <!-- Outros -->
+    <string name="app_name">Template Android</string>
+    <string name="action_settings">Configurações</string>
+    <string name="title_activity_main">Principal</string>
+    <!-- Header NavigationDrawer -->
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <!-- Menu NavigationDrawer -->
+    <string name="nav_menu_feed">Feed de Notícias</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <!-- Item_Adapter_Feed -->
+    <string name="btn_acessar">ACESSAR</string>
+    <string name="nav_menu_product">Produto</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_titulo_produto">Título do produto</string>
+    <string name="txt_subtitulo_produto">Subtítulo do produto</string>
+    <string name="txt_price">R$ 1,50</string>
+    <string name="format_price">R$</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+</resources>

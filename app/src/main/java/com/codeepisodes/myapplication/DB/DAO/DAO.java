@@ -8,7 +8,7 @@ import com.codeepisodes.myapplication.DB.Models.ProductTable;
 
 public class DAO extends SQLiteOpenHelper {
 
-    public static int DATABASE_VERSION = 2;
+    public static int DATABASE_VERSION = 3;
     public static String DATABASE_NAME = "vendas";
 
     public DAO(Context context) {
@@ -21,7 +21,10 @@ public class DAO extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db , int i , int i1) {
-        db.execSQL ( ProductTable.SQL_DROP_TABLE );
+    public void onUpgrade(SQLiteDatabase db , int oldVersion , int newVersion) {
+        switch(oldVersion){
+            case 2: // indo para versao 3
+                db.execSQL ( ProductTable.SQL_ALTER_TABLE ); // não usar break para os cases, pois assim executará todas as versões
+        }
     }
 }

@@ -17,6 +17,7 @@ import com.codeepisodes.myapplication.Activity.ProductActivity;
 import com.codeepisodes.myapplication.DTO.Product;
 import com.codeepisodes.myapplication.Fragment.ProductFragment;
 import com.codeepisodes.myapplication.R;
+import com.codeepisodes.myapplication.Utils.ImageUtils;
 
 import java.util.List;
 
@@ -47,6 +48,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
         holder.txt_title.setText ( product.getName ( ) );
         holder.txt_subtitle.setText ( product.getDescription ( ) );
         holder.txt_price.setText ( String.format ( context.getString ( R.string.format_price ) + " %d" , product.getPrice ( ) ) );
+
+        ImageUtils.setImage ( holder.img_product, product.getImagePath (), 50, 50 );
     }
 
     @Override

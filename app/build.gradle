@@ -18,7 +18,7 @@ android {
         }
     }
 
-    // Insere o java 8 para usar o "v -> undoDelete()" do ProductAdapter
+    // Insere o java 8 para usar o "v -> undoDelete()" do ProductAdapter ou v -> para qualquer método "new View.OnClickListener ( )"
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'

@@ -9,17 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codeepisodes.myapplication.DTO.Product;
 import com.codeepisodes.myapplication.Fragment.ProductFragment;
 import com.codeepisodes.myapplication.R;
+import com.codeepisodes.myapplication.Utils.ImageUtils;
 
 public class DetailActivity extends AppCompatActivity {
 
     private Product product;
     private Toolbar toolbar;
     private TextView txt_title, txt_description, txt_price;
+    private ImageView img_product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +40,12 @@ public class DetailActivity extends AppCompatActivity {
         txt_title = findViewById ( R.id.txt_title_detail );
         txt_description = findViewById ( R.id.txt_subtitle_detail );
         txt_price = findViewById ( R.id.txt_price_detail );
+        img_product = findViewById(R.id.img_product);
 
         txt_title.setText (product.getName ());
         txt_description.setText (product.getDescription ());
         txt_price.setText ( String.format ( "%s %s" , getString ( R.string.format_price ) , String.valueOf ( product.getPrice ( ) ) ) );
+        ImageUtils.setImage ( img_product, product.getImagePath () );
 
         FloatingActionButton fab = findViewById ( R.id.fab );
         fab.setOnClickListener ( new View.OnClickListener ( ) {

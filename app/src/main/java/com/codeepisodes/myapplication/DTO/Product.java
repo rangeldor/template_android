@@ -8,6 +8,7 @@ public class Product implements Serializable {
     private String name;
     private String description;
     private int price;
+    private String imagePath;
 
     public Integer getId() {
         return id;
@@ -39,6 +40,14 @@ public class Product implements Serializable {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     @Override
