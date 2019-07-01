@@ -1,15 +1,20 @@
 package com.codeepisodes.myapplication.Adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codeepisodes.myapplication.Activity.DetailActivity;
@@ -94,9 +99,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
             product = productList.get ( position );
 
+//            ImageView imageView = view.findViewById ( R.id.img_product );
+
             Intent intent = new Intent ( context , DetailActivity.class );
             intent.putExtra ( ProductFragment.SELECTED_PRODUCT , product );
-            context.startActivity ( intent );
+
+//            Pair<View, String> pair = Pair.create ( (View) imageView , ViewCompat.getTransitionName ( imageView ) );
+//            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation ( (Activity) context , pair );
+//
+//            context.startActivity ( intent, optionsCompat.toBundle ( )  );
+
+            context.startActivity ( intent  );
         }
 
         @Override

@@ -42,11 +42,11 @@ public class ProductFragment extends Fragment {
     private ProductAdapter adapter;
     private List<Product> productList = new ArrayList<> (  );
     private ProductTable productTable;
-    private FloatingActionButton fab_addProduct;
+   // private FloatingActionButton fab_addProduct;
+    private com.github.clans.fab.FloatingActionButton fab_addProduct;
     private Intent intent;
     private CoordinatorLayout coordinatorLayout;
     private Toolbar toolbar;
-
 
     public ProductFragment() {
         // Required empty public constructor
@@ -73,8 +73,9 @@ public class ProductFragment extends Fragment {
         fab_addProduct.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick(View view) {
-               // Toast.makeText ( getActivity () , "clicado" , Toast.LENGTH_SHORT ).show ( );
-                // Snackbar.make ( view, "Clicado", Snackbar.LENGTH_SHORT ).show ();
+
+//                Toast.makeText ( getActivity () , "clicado" , Toast.LENGTH_SHORT ).show ( );
+//                 Snackbar.make ( view, "Clicado", Snackbar.LENGTH_SHORT ).show ();
                 intent = new Intent ( getActivity (), ProductActivity.class );
                 startActivity ( intent );
             }
