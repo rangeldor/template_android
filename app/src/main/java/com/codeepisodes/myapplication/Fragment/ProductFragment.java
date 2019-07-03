@@ -42,7 +42,6 @@ public class ProductFragment extends Fragment {
     private ProductAdapter adapter;
     private List<Product> productList = new ArrayList<> (  );
     private ProductTable productTable;
-   // private FloatingActionButton fab_addProduct;
     private com.github.clans.fab.FloatingActionButton fab_addProduct;
     private Intent intent;
     private CoordinatorLayout coordinatorLayout;

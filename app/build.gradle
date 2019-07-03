@@ -18,6 +18,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     // Insere o java 8 para usar o "v -> undoDelete()" do ProductAdapter ou v -> para qualquer método "new View.OnClickListener ( )"
     compileOptions {
         sourceCompatibility = '1.8'
@@ -38,4 +42,5 @@ dependencies {
     implementation 'com.squareup.okhttp:okhttp:2.7.5'
     implementation 'com.squareup.okhttp:okhttp-urlconnection:2.7.5'
     implementation 'com.github.clans:fab:1.6.4'
+    implementation 'com.heinrichreimersoftware:material-intro:1.6'
 }
