@@ -21,6 +21,7 @@ import android.view.Menu;
 import com.codeepisodes.myapplication.DB.Models.ProductTable;
 import com.codeepisodes.myapplication.DTO.Product;
 import com.codeepisodes.myapplication.Fragment.FeedFragment;
+import com.codeepisodes.myapplication.Fragment.Menu1Fragment;
 import com.codeepisodes.myapplication.Fragment.ProductFragment;
 import com.codeepisodes.myapplication.R;
 
@@ -80,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if ( id == R.id.nav_product ) {
             ProductFragment productFragment = new ProductFragment ();
             createFragmentTransaction ( productFragment );
+        } else if ( id == R.id.nav_menu1 ) {
+            Menu1Fragment menu1Fragment = new Menu1Fragment ();
+            createFragmentTransaction ( menu1Fragment );
         } else if ( id == R.id.nav_tools ) {
 
         } else if ( id == R.id.nav_share ) {

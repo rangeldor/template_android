@@ -46,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:drawableStart="@drawable/ic_email_black"
-                android:drawablePadding="10dp"/>
+                android:drawablePadding="10dp"
+                android:imeOptions="actionNext"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -72,7 +73,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:drawableStart="@drawable/ic_lock_black"
-                android:drawablePadding="10dp"/>
+                android:drawablePadding="10dp"
+                android:imeOptions="actionDone"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.button.MaterialButton

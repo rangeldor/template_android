@@ -14,6 +14,11 @@
             android:icon="@drawable/ic_nav_product"
             android:title="@string/nav_menu_product" />
 
+        <item
+            android:id="@+id/nav_menu1"
+            android:icon="@drawable/ic_menu1_white"
+            android:title="Exemplo menu 1" />
+
     </group>
 
     <item android:title="Configurações">
