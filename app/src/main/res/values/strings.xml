@@ -1,25 +1,26 @@
 <resources>
-    <!-- Outros -->
+    <!-- TODO: Outros -->
     <string name="app_name">Template Android</string>
     <string name="action_settings">Configurações</string>
     <string name="title_activity_main">Principal</string>
-    <!-- Header NavigationDrawer -->
+    <!-- TODO: Header NavigationDrawer -->
     <string name="navigation_drawer_open">Abrir menu</string>
     <string name="navigation_drawer_close">Fechar menu</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <!-- Menu NavigationDrawer -->
+    <!-- TODO: Menu NavigationDrawer -->
     <string name="nav_menu_feed">Feed de Notícias</string>
+    <string name="nav_menu_product">Produto</string>
+    <string name="nav_menu_example1">Exemplo menu 1</string>
+    <string name="nav_title_menu_config">Configurações</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-    <!-- Item_Adapter_Feed -->
+    <!-- TODO: Item_Adapter_Feed -->
     <string name="btn_acessar">ACESSAR</string>
-    <string name="nav_menu_product">Produto</string>
-
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_titulo_produto">Título do produto</string>
@@ -27,5 +28,33 @@
     <string name="txt_price">R$ 1,50</string>
     <string name="format_price">R$</string>
     <string name="title_activity_detail">DetailActivity</string>
+    <!-- TODO: MainIntro -->
+    <string name="first_intro_title">Organize suas contas   de onde estiver</string>
+    <string name="first_intro_description">Simples, fácil de usar e grátis</string>
+    <string name="second_intro_title">Saiba para onde está indo seu dinheiro</string>
+    <string name="second_intro_description">Categorizando seus lançamentos e vendo o   destino de cada centavo</string>
+    <string name="third_intro_title">Nunca mais esqueça de   pagar uma conta</string>
+    <string name="third_intro_description">Receba alertas quando quiser</string>
+    <string name="fourth_intro_title">Tudo organizado, no   celular ou computador</string>
+    <string name="fourth_intro_description">Use no seu smartphone e acessando   pelo site</string>
+    <string name="fifth_intro_title">Bem vindo!</string>
+    <string name="fifth_intro_btn">ACESSAR</string>
+    <!-- TODO: Login -->
+    <string name="txt_email_login">Email</string>
+    <string name="txt_senha_login">Senha</string>
+    <string name="txt_btn_login">Login</string>
+    <string name="txt_btn_register_login">Cadastrar</string>
+    <string name="txt_btn_lost_pass_login">Esqueceu a senha?</string>
+    <string name="txt_privacidade_login">Politica de privacidade</string>
+    <!-- TODO: Product -->
+    <string name="toast_product_success_update">Sucesso ao atualizar o produto</string>
+    <string name="toast_product_error_update">Erro ao atualizar o produto</string>
+    <string name="toast_product_success_insert">Sucesso ao inserir o produto</string>
+    <string name="toast_product_error_insert">Erro ao inserir o produto</string>
+    <!-- TODO: Detail -->
+    <string name="txt_detail_snack_title">Produto no carrinho:</string>
+    <string name="txt_detail_snack_btn">Ação</string>
+    <!-- TODO: ProductFragment -->
+    <string name="txt_snack_title_productfragment">Item removido da lista.</string>
 
 </resources>

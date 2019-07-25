@@ -12,6 +12,8 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.codeepisodes.myapplication.Helper.UserPreferences;
@@ -24,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private String email, password;
     private AlertDialog alertDialog;
     private UserPreferences userPreferences;
+    private ProgressBar progressBar_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,22 +37,39 @@ public class LoginActivity extends AppCompatActivity {
         alertDialogHelper ( );
         validateForm ( );
 
-        userPreferences = new UserPreferences ( getApplicationContext () );
+        userPreferences = new UserPreferences ( getApplicationContext ( ) );
 
-        email = userPreferences.restoreEmailLogin ();
-        if ( !email.equals ( "" ) ){
+        email = userPreferences.restoreEmailLogin ( );
+        if ( !email.equals ( "" ) ) {
             edt_email.setText ( email );
         }
 
         btn_login.setOnClickListener ( v -> {
 
-            email = edt_email.getText ().toString ();
+            progressBar_login.setVisibility ( View.VISIBLE );
 
-            if ( !email.equals ( "" ) ){
+            email = edt_email.getText ( ).toString ( );
+
+            if ( !email.equals ( "" ) ) {
+                // Guarda o email nas preferências do usuário caso o campo email não esteja vazio
                 userPreferences.saveEmailLogin ( email );
             }
 
             Intent intent = new Intent ( this , MainActivity.class );
+
+            if ( progressBar_login.isShown ( ) ) {
+
+                new Thread ( () -> {
+                    try {
+                        Thread.sleep ( 15000 );
+                    } catch (InterruptedException e) {
+                        e.printStackTrace ( );
+                    }
+                } ).start ();
+
+                progressBar_login.setVisibility ( View.GONE );
+            }
+
             startActivity ( intent );
         } );
     }
@@ -61,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_privacy_policy = findViewById ( R.id.btn_privacy_policy );
         edt_email = findViewById ( R.id.edt_email );
         edt_password = findViewById ( R.id.edt_password );
+        progressBar_login = findViewById ( R.id.progressBar_login );
     }
 
     private void validateForm() {
@@ -84,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void alertDialogHelper() {
-        AlertDialog.Builder builder = new AlertDialog.Builder ( this  );
+        AlertDialog.Builder builder = new AlertDialog.Builder ( this );
         builder.setMessage ( "Este é um template para ajudar no desenvolvimento. Por favor, simplemente clique em LOGIN para acessar." );
         builder.setPositiveButton ( "OK" , (dialogInterface , i) -> {
             Toast.makeText ( LoginActivity.this , "Você clicou em OK" , Toast.LENGTH_SHORT ).show ( );
@@ -94,6 +115,6 @@ public class LoginActivity extends AppCompatActivity {
         } );
 
         alertDialog = builder.create ( );
-        alertDialog.show ();
+        alertDialog.show ( );
     }
 }

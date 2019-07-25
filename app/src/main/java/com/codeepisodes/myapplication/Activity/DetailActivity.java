@@ -51,8 +51,8 @@ public class DetailActivity extends AppCompatActivity {
         fab.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick(View view) {
-                Snackbar.make ( view , "Produto no carrinho: " + product.getName () , Snackbar.LENGTH_LONG )
-                        .setAction ( "Action" , null ).show ( );
+                Snackbar.make ( view , getString( R.string.txt_detail_snack_title) + product.getName () , Snackbar.LENGTH_LONG )
+                        .setAction ( getString( R.string.txt_detail_snack_btn) , null ).show ( );
             }
         } );
     }

@@ -125,9 +125,9 @@ public class ProductActivity extends AppCompatActivity {
 
                 if ( productTable.update ( product_update ) ) {
                     finish ( );
-                    Toast.makeText ( ProductActivity.this , "Sucesso ao atualizar o produto " , Toast.LENGTH_SHORT ).show ( );
+                    Toast.makeText ( ProductActivity.this , getString( R.string.toast_product_success_update) , Toast.LENGTH_SHORT ).show ( );
                 } else {
-                    Toast.makeText ( ProductActivity.this , "Erro ao atualizar o produto" , Toast.LENGTH_SHORT ).show ( );
+                    Toast.makeText ( ProductActivity.this , getString( R.string.toast_product_error_update) , Toast.LENGTH_SHORT ).show ( );
                 }
 
             } else { // Cria
@@ -138,9 +138,9 @@ public class ProductActivity extends AppCompatActivity {
 
                 if ( productTable.create ( product_insert ) ) {
                     finish ( );
-                    Toast.makeText ( ProductActivity.this , "Sucesso ao inserir o produto " , Toast.LENGTH_SHORT ).show ( );
+                    Toast.makeText ( ProductActivity.this , getString( R.string.toast_product_success_insert) , Toast.LENGTH_SHORT ).show ( );
                 } else {
-                    Toast.makeText ( ProductActivity.this , "Erro ao inserir o produto" , Toast.LENGTH_SHORT ).show ( );
+                    Toast.makeText ( ProductActivity.this , getString( R.string.toast_product_error_insert) , Toast.LENGTH_SHORT ).show ( );
                 }
 
             }

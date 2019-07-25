@@ -111,7 +111,7 @@ public class ProductFragment extends Fragment {
 
                 adapter.removeItem(position);
 
-                Snackbar snackbar = Snackbar.make(coordinatorLayout, "Item removido da lista.", Snackbar.LENGTH_LONG);
+                Snackbar snackbar = Snackbar.make(coordinatorLayout, R.string.txt_snack_title_productfragment, Snackbar.LENGTH_LONG);
                /* snackbar.setAction("REFAZER", view -> {
 
                     adapter.restoreItem(productList, position);

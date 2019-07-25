@@ -17,27 +17,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity
             android:name=".Activity.MainIntroActivity"
             android:theme="@style/Theme.Intro">
+        </activity>
 
+        <activity android:name=".Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.LoginActivity">
 
-        </activity>
         <activity
             android:name=".Activity.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+
+        </activity>
+
         <activity
             android:name=".Activity.DetailActivity"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".Activity.ProductActivity" />
 
         <!-- Cria um provider para tirar foto com a camera e salvar em um caminho(path) -->

@@ -17,11 +17,11 @@
         <item
             android:id="@+id/nav_menu1"
             android:icon="@drawable/ic_menu1_white"
-            android:title="Exemplo menu 1" />
+            android:title="@string/nav_menu_example1" />
 
     </group>
 
-    <item android:title="Configurações">
+    <item android:title="@string/nav_title_menu_config">
         <menu>
             <item
                 android:id="@+id/nav_tools"
