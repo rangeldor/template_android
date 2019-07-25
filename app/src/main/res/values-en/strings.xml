@@ -54,6 +54,9 @@
     <string name="txt_detail_snack_btn">Ação</string>
     <!-- TODO: ProductFragment -->
     <string name="txt_snack_title_productfragment">Item removed from list.</string>
+    <string name="edt_nome_product">Nome</string>
+    <string name="edt_preco_product">Preço</string>
+    <string name="edt_descricao_product">Descrição</string>
 
 </resources>
 
