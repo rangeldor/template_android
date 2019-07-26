@@ -40,7 +40,7 @@ public class DetailActivity extends AppCompatActivity {
         txt_title = findViewById ( R.id.txt_title_detail );
         txt_description = findViewById ( R.id.txt_subtitle_detail );
         txt_price = findViewById ( R.id.txt_price_detail );
-        img_product = findViewById(R.id.img_product);
+        img_product = findViewById(R.id.img_product_detail);
 
         txt_title.setText (product.getName ());
         txt_description.setText (product.getDescription ());

@@ -24,6 +24,7 @@
                 android:id="@+id/img_product"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:transitionName="img_product"
                 android:layout_marginStart="16dp"
                 android:src="@color/cardview_dark_background"
                 app:layout_constraintBottom_toTopOf="@+id/guideline"

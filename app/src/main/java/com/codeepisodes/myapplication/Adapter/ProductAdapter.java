@@ -99,17 +99,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
 
             product = productList.get ( position );
 
-//            ImageView imageView = view.findViewById ( R.id.img_product );
+            ImageView imageView = view.findViewById ( R.id.img_product );
 
             Intent intent = new Intent ( context , DetailActivity.class );
             intent.putExtra ( ProductFragment.SELECTED_PRODUCT , product );
 
-//            Pair<View, String> pair = Pair.create ( (View) imageView , ViewCompat.getTransitionName ( imageView ) );
-//            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation ( (Activity) context , pair );
-//
-//            context.startActivity ( intent, optionsCompat.toBundle ( )  );
+            // para fazer a animação:
+            // * Inserir ->
+            //    <item name="android:windowContentTransitions">true</item>
+            //    no Thema do Style
+            // Inserir -> android:transitionName="profile" no imageview da activity atual e na imageview da proxima activity   //Pode ser qualquer nome que seja coerente
+            // Para mais detalhes ir : https://github.com/codepath/android_guides/wiki/Shared-Element-Activity-Transition
+            Pair<View, String> pair = Pair.create ( (View) imageView , ViewCompat.getTransitionName ( imageView ) );
+            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation ( (Activity) context , pair );
 
-            context.startActivity ( intent  );
+            context.startActivity ( intent, optionsCompat.toBundle ( )  );
+
         }
 
         @Override

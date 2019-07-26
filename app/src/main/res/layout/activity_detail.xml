@@ -26,9 +26,10 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/img_product"
+                android:id="@+id/img_product_detail"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
+                android:transitionName="img_product"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 android:src="@color/cardview_dark_background"
